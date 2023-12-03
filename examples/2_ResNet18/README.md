@@ -2,9 +2,11 @@
 
 This example provides a more realistic demonstration of how to use the library, using ResNet-18 to classify an image.
 
+
 As the input to this model is four-dimensional (batch size, colour, x, y), care must be taken dealing with the data array in Python and Fortran. See [When to transpose arrays](#when-to-transpose-arrays) for more details.
 
 ## Description
+To utilize the ResNet-18 example from FTorch, you can run the provided Python script from the command line. The following command demonstrates how to perform image classification:
 
 A python file is provided that downloads the pretrained
 [ResNet-18](https://pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html)
@@ -35,13 +37,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-You can check that everything is working by running `resnet18.py`:
+you can run the provided resnet18.py script from the command line:
 
 ```
-python3 resnet18.py
+python resnet18.py /path/to/your/image.jpg --precision fp32 --model_type resnet18
 ```
+Replace /path/to/your/image.jpg with the path to the image you want to classify.
 
-When using single precision, it should produce the result:
+Options:
+--precision: Specify the working precision. Choose between "fp32" (single precision) or "fp64" (double precision). Default is "fp32".
+--model_type: Specify the model type. In this case, it's "resnet18".  
 
 ```
 Top 5 results:
